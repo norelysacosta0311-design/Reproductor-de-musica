@@ -1,0 +1,21 @@
+Mi idea principal partió de Spotify,
+ pero con una inspiración basada claramente en la artista Olivia Rodrigo, 
+ para la pantalla de bienvenido sí necesité ayuda de la IA, le pedí específicamente que
+  me otorgará un código que permitiera que el cd girará únicamente en css.
+
+En lo que sí tuve que iterar más con la IA fue para la lista animada
+ de la interfaz principal de mi reproductor y el tamaño de cada ítem dentro de esta, 
+ fue lo que más se me complico, esta idea la saque del apartado de 'animated lists' de la 
+ página react.bits.
+
+Para lo que más necesité apoyo fue para el tamaño y la posición de imágenes dentro de la
+ interfaz, cada idea vista en mi página principalmente son de Pinterest, videos de 
+ programadores en tiktok y plantillas de canva.
+
+Además de, la IA actuó como revisor de mi código múltiples veces, 
+sugiriendo el uso de etiquetas semánticas y mejores prácticas para que el 
+diseño fuera adaptable, al tener problemas, me recomendaba distintas soluciones
+ por lo que casi siempre encontré la solución de que se viera como yo lo esperaba, 
+ lo que si que me ahorró tiempo y me permitió enfocarme 
+más en la calidad visual. También saqué el nombre de mi página de la IA. 
+

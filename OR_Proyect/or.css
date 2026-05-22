@@ -1,0 +1,525 @@
+body {
+   height: 100%;
+}
+
+
+.background-inicial {
+    position: fixed;
+    top: 50%; left: 50%;
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+
+.contenido {
+    position: relative; 
+    margin-top: 20px;
+    z-index: 2;
+    margin: 0 auto;
+    max-width: 520px;
+    text-align: center;
+}
+
+.titulo { 
+    width: 100%;
+}
+
+.presentacion {
+    margin-top: 90px;
+    color: #d9c2ff
+}
+
+@keyframes girar {
+    from{
+        transform: rotate(0deg); 
+    }
+    to{ 
+        transform: rotate(360deg);
+    }
+}
+.cd {
+    position: absolute;
+    top: 16%;
+    right: 128%;
+    width: 80%; 
+    opacity: 0.9;
+    animation: girar 4s linear infinite; 
+ }
+
+.olivia {
+    position:absolute;
+    top: 67%;
+    left: 107%;
+    width: 60%;
+    filter: contrast(1.1) drop-shadow(0 20px 0 rgba 0, 0, 0, 0.5);
+}
+
+.solyflor {
+    position: absolute; 
+    right: 88%;
+    width: 30%;
+    top: 5%;
+
+
+}
+    
+.corazonyflor {
+    position: absolute;
+    width: 50%;
+    left: 92%;
+    top: 18%;
+}
+
+.contenedor-de-botones {
+   display: flex;
+   flex-direction: column; 
+   gap: 15px;            
+   max-width: 200px;   
+   margin: 0 auto;
+   align-items: center;
+}
+
+.button {
+    color: #d9c2ff;
+    background-color: #3C165C;
+    border-radius: 50px;
+    border-color: #3C165C;
+    border: none;
+    padding: 10px 12px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.background-login {
+    background-image: url(login.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tarjeta-login {
+  background-color: #000000;
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  max-width: 420px;       
+  border-radius: 24px;     
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;    
+  gap: 25px;               
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); 
+ }
+
+ .tarjeta-login h2 {
+  color: #ffffff;
+  font-family: 'Times New Roman', serif; 
+  font-style: italic;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.tarjeta-login input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.1rem;
+  font-family: Arial, sans-serif;
+  color: #333;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.btn-continuar {
+  width: 100%;
+  background-color: #3f0082;
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 50px;     
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.background-reproductor {
+    background-color: #000000;
+}
+
+.barra-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 32px;
+    height: 64px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+.nav-izquierda {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 8%;
+}
+
+.btn-inicio {
+    background-color: #563d7e;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-inicio svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.centro {
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 32px;
+}
+
+.buscador {
+    background-color: #1f1f1f;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+}
+
+.buscador:hoover {
+    border-color: #333;
+}
+
+.buscador input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    font-size: 14px;
+    outline: none;
+}
+
+.icono-buscar {
+   color: #000000;
+   margin-right: 12px; 
+}
+
+.cuerpo-reproductor {
+  display: flex;
+  padding: 10px;
+  background-color: #000000; 
+  min-height: calc(100vh - 64px);
+  box-sizing: border-box;
+}
+
+.contenedor-principal-derecho {
+    align-self: flex-start;
+  margin-left: auto;
+  bottom:0;
+  width: 75%; 
+  background: #1f1f1f;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white; 
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+}
+
+.contenedor-principal-derecho::-webkit-scrollbar {
+    width: 8px;
+}
+
+.contenedor-principal-derecho::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+.contenedor-principal-derecho::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 4px; 
+}
+
+.contenedor-principal-derecho::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.encabezado-seccion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cuadricula-canciones {
+  display: flex;
+  flex-direction: row; 
+  gap: 20px;           
+  overflow-x: auto;    
+  padding-bottom: 10px;
+}
+
+.tarjeta-cancion {
+  background-color: #363535;
+  padding: 16px;
+  border-radius: 8px;
+  width: 180px;          
+  flex-shrink: 0;        
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-portada {
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.contenedor-portada img {
+  width: 100%;
+  height: 150px;        
+  object-fit: cover;     
+  display: block;
+}
+
+.tarjeta-cancion h3 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}
+
+.tarjeta-cancion p {
+  margin: 0;
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+.contenedor-de-albumes {
+   padding-left: 10px;
+   width: 100%;
+    margin-top: 50px;
+}
+
+.seccion-albumes {
+    display: flex;
+}
+
+.titulo-albumes {
+    color: white;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.card {
+    position: relative;
+    border-radius: 20px;
+    margin-left: 10px;
+    height: 200px;
+    background-color: #1f1f1f;
+    flex: 1;
+    transition: .3 all ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    flex: 2;
+    background-color: rgb(236, 208, 236);
+}
+
+.card .content-album {
+    position: absolute;
+    text-overflow: ellipsis;
+    bottom: 0;
+    padding: 25px;
+    opacity: 0;
+    transition: opacity 0.3 ease;
+    z-index: 2;
+}
+
+.card:hover .content-album {
+    opacity: 1;
+}
+
+.card img {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.contenedor-izquierdo {
+   
+    width: 260px;
+    height: 80vh;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    flex-direction: colum;
+    color: white;
+    background-color: #1f1f1f;
+    border: 1.px solid transparent;
+    background-image: linear-gradient(to bottom, #020202, #591fbe), 
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.15), rgba(53, 48, 201, 0.02));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.seccion-lista-dinamica {
+    margin-top: 40px; 
+    width: 100%;
+}
+
+
+.contenedor-lista-animada {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; 
+    width: 100%;
+}
+
+
+.item-cancion-animado {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+    background-color: rgba(255, 255, 255, 0.03); 
+    border-radius: 14px; 
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(0);
+}
+
+
+.item-cancion-animado:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-color: rgba(122, 85, 201, 0.15); 
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.imagen-item {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px; 
+    object-fit: cover;
+    margin-right: 16px;
+}
+.letras-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1; 
+}
+
+.titulo-item {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.artista-item {
+    color: #b3b3b3; 
+    font-size: 13px;
+}
+
+.duracion-item {
+    color: #888888;
+    font-size: 13px;
+    font-variant-numeric: tabular-nums; 
+}
+
+/*reproductor izquierdo*/
+
+.contenedor-izquierdo .img-rep img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.contenedor-izquierdo h2{
+font-size: 25px;
+margin: 0;
+text-align: center;
+}
+
+.contenedor-izquierdo h3 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    margin: 5px 0 0;
+}
+
+.contenedor-izquierdo .progressBar {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 40px 20px;
+    width: 80%;
+    height: 4px;
+}
+
+.contenedor-izquierdo .progressBar .progress {
+    background: #af89d7;
+    border-radius: 5px;
+    width: 0%;
+    height: 100%;
+    transition: width 0.1s linear;
+}
+
+.contenedor-izquierdo .progressBar .duracion {
+    position: relative;
+    top: -25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor-izquierdo .controles {
+    position: relative;
+    top: -15px;
+    left: 50px;
+    width: 200px;
+}
+
+.contenedor-izquierdo .controles ion-icon {
+    font-size: 30px;
+    color: #ffffff;
+    margin-right: 10px;
+    user-select: none;
+    cursor: pointer;
+}

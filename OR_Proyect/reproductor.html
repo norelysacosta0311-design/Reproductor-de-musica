@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+    <html lang="es">
+
+        <head>
+            <meta charset="UTF-8">
+            <title>SourStream</title>
+            <link rel="icon" href="or.png">
+            <link rel="stylesheet" href="or.css">
+            <script src="or.js" defer></script>
+        </head>
+
+        <body class="background-reproductor">
+             
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+           <nav class="barra-principal">
+            <div class="nav-izquierda">
+                <div>
+                    <img src="or.png" class="logo">
+                </div>
+                <button class="btn-inicio">
+                    <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="100" height="100" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" class="inicio"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="centro">
+                <div class="buscador">
+                    <span class="icono-buscar">&#128269;</span>
+                    <input type="text" placeholder="¿Qué deseas reproducir?">
+                </div>
+            </div>
+           </nav>
+
+            <div class="cuerpo-reproductor">
+
+                <div class="contenedor-izquierdo">
+                    <div class="img-rep">
+                    <img src="imagenes/dejavujpg.jpg">
+                    </div>
+
+                    <h2 id="titulo">Deja vu</h2>
+                    <h3 id="artista">Olivia Rodrigo</h3>
+                    <audio src=""></audio>
+
+                    <div class="progressBar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                        <div class="duracion">
+                            <span id="tiempoActual">0:00</span>
+                            <span id="tiempoDuracion">3:20</span>
+                        </div>
+                    </div>
+
+                    <div class="controles">
+                        <ion-icon name="play-back" id="anterior"></ion-icon>
+                        <ion-icon name="play-circle" id="play"></ion-icon>
+                        <ion-icon name="play-forward" id="siguiente"></ion-icon>
+                    </div>
+                    </div>
+    
+               
+
+                <div class="contenedor-principal-derecho">
+    
+                    <section class="seccion-musica">
+                      <div class="encabezado-seccion">
+                     <h2>Canciones en tendencia</h2>
+                    <a href="#" class="enlace-mostrar" style="text-decoration: none;">Mostrar todos</a>
+                 </div>
+
+                <div class="cuadricula-canciones">
+        
+             <div class="tarjeta-cancion">
+                <div class="contenedor-portada">
+                  <img src="imagenes/vampire.jpg">
+                 </div>
+              <h3>Vampire</h3>
+              <p>Olivia Rodrigo</p>
+            </div>
+
+            <div class="tarjeta-cancion">
+                 <div class="contenedor-portada">
+                   <img src="imagenes/begged.jpg">
+                 </div>
+             <h3>Begged</h3>
+             <p>Olivia Rodrigo</p>
+            </div>
+
+             <div class="tarjeta-cancion">
+                  <div class="contenedor-portada">
+                      <img src="imagenes/driverlicense.jpg">
+                  </div>
+                  <h3>Driver License</h3>
+                 <p>Olivia Rodrigo</p>
+            </div>
+
+         </div>
+         </section>
+
+            <div class="contenedor-de-albumes">
+
+                <h2 class="titulo-albumes">Álbumes</h2>
+
+                <div class="seccion-albumes">
+
+                     <div class="card">
+                          <img src="imagenes/albumsour.jpg">
+                          <div class="content-album">
+                              <h3>Sour</h3>
+                              <p>Olivia Rodrigo</p>
+                         </div>
+                      </div>
+
+                      <div class="card">
+                          <img src="imagenes/albumguts.jpg">
+                         <div class="content-album">
+                           <h3>GUTS</h3>
+                             <p>Olivia Rodrigo</p>
+                        </div>
+                      </div>
+
+                     <div class="card">
+                         <img src="imagenes/albumguts(deluxe)jpg.jpg"/>
+                        <div class="content-album">
+                            <h3>GUTS(deluxe)</h3>
+                            <p>Olivia Rodrigo</p>
+                         </div>
+                     </div>
+
+                      <div class="card">
+                          <img src="imagenes/albumyouseemprettyjpg.jpg">
+                        <div class="content-album">
+                            <h3>You seem pretty sad for a <br> girl so in love</h3>
+                            <p>Olivia Rodrigo</p>
+                         </div> 
+                      </div>
+                </div>
+
+             </div>
+
+             <div class="seccion-lista-dinamica">
+    
+                 <h2 class="titulo-seccion">Todas las canciones</h2>
+    
+                 <div class="contenedor-lista-animada">
+        
+                     <div class="item-cancion-animado">
+                         <img src="imagenes/vampire.jpg" class="imagen-item">
+                            <div class="letras-item">
+                              <span class="titulo-item" id="titulo">Vampire</span>
+                              <span class="artista-item" id="artista">Olivia Rodrigo</span>
+                            </div>
+                         <div class="duracion-item">3:39</div>
+                   </div>
+
+            <div class="item-cancion-animado">
+                <img src="imagenes/badidea.jpg" class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item" id="titulo">Bad Idea Right?</span>
+                    <span class="artista-item" id="artista">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:04</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/driverlicense.jpg"  class="imagen-item">
+                 <div class="letras-item">
+                     <span class="titulo-item" id="titulo">Drivers License</span>
+                     <span class="artista-item" id="artista">Olivia Rodrigo</span>
+                 </div>
+                 <div class="duracion-item">4:02</div>
+             </div>
+
+             <div class="item-cancion-animado">
+                 <img src="imagenes/good4ujpg.jpg"  class="imagen-item">
+                 <div class="letras-item">
+                    <span class="titulo-item">Good 4 U</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">2:58</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/traitor.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Traitor</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/brutal.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item"></span>Brutal
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/soamerican.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">So american</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/begged.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Begged</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/favoritecrime.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Favorite crime</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/dejavujpg.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Deja vu</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/happier.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Happier</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/1step3back.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">1 step forward, 3 step back</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/enoughforu.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Enough for you</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/scaredofmyguittar.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Scared of my guittar</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/stranger.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Stranger</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/lacy.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Lacy</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/jelousy.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Jelousy, jelousy</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/hopeurok.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Hope ur ok</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/balladofhomeschooledgirl.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Ballad of homeschooled girl</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/logical.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Logical</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/loveisembarasing.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Love is embarassing</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/obsessedjpg.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Obsessed</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/girleivealwaysbeen.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Girl i've always been</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/allamericanbitch.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">All american bitch</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/makingthebed.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Making the bed</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/gethimback.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Get him back!</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/teenagedream.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Teenage dream</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/thegrudge.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">The grudge</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+            <div class="item-cancion-animado">
+                 <img src="imagenes/prettyisntpretty.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Pretty isn't pretty</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">3:49</div>
+            </div>
+
+
+            </div>
+         </div>
+
+                </div>
+
+                
+                
+
+
+             </div>
+        
+        
+        
+        
+        
+        
+          
+        </body>
