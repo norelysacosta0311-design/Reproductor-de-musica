@@ -14,46 +14,50 @@
             <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
             <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-           <nav class="barra-principal">
-            <div class="nav-izquierda">
-                <div>
-                    <img src="or.png" class="logo">
-                </div>
+         <nav class="barra-principal">
 
-                <h1 id="saludoBienvenida">Bienvenido,</h1>
+    <div class="nav-izquierda">
+        <img src="or.png" class="logo">
+        <h1 id="saludoBienvenida" class="saludo-bienvenida">Te damos la bienvenida,</h1>
+    </div>
 
-                <button class="btn-inicio">
-                    <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="100" height="100" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                        <polyline points="9 22 9 12 15 12 15 22" class="inicio"/>
-                    </svg>
-                </button>
+    <div class="nav-derecha">
+        <button class="btn-inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" class="inicio"/>
+            </svg>
+        </button>
+
+        <div class="centro">
+            <div class="buscador">
+                <span class="icono-buscar">&#128269;</span>
+                <input type="text" id="inputBusqueda" placeholder="¿Qué deseas reproducir?">
             </div>
+            <div class="dropdown-busqueda" id="dropdownBusqueda"></div>
+        </div>
 
-            <div class="centro">
-                <div class="buscador">
-                    <span class="icono-buscar">&#128269;</span>
-                    <input type="text" placeholder="¿Qué deseas reproducir?">
-                </div>
-            </div>
-           </nav>
+    </div>
+
+</nav>
+
 
             <div class="cuerpo-reproductor">
 
                 <div class="contenedor-izquierdo">
                     <div class="img-rep">
-                    <img src="imagenes/dejavujpg.jpg">
+                    <img src="imagenes/dejavujpg.jpg" id="portadaActual">
                     </div>
 
                     <h2 id="titulo">Deja vu</h2>
                     <h3 id="artista">Olivia Rodrigo</h3>
-                    <audio src=""></audio>
+                    <audio id="audio"></audio>
 
                     <div class="progressBar" id="progressBar">
                         <div class="progress" id="progress"></div>
                         <div class="duracion">
                             <span id="tiempoActual">0:00</span>
-                            <span id="tiempoDuracion">3:20</span>
+                            <span id="tiempoDuracion">0:00</span>
                         </div>
                     </div>
 
@@ -62,23 +66,29 @@
                         <ion-icon name="play-circle" id="play"></ion-icon>
                         <ion-icon name="play-forward" id="siguiente"></ion-icon>
                     </div>
+
+                    <div class="cola-canciones">
+                        <h4 class="titulo-cola">A continuación</h4>
+                    <div id="listaCola"></div>
+                    </div>
+                    
                     </div>
     
-               
 
-                <div class="contenedor-principal-derecho">
+                <div class="contenedor-principal-derecho" id="mainContainer">
+
+                    <div id="homeView"></div>
 
                     <section class="seccion-musica">
                       <div class="encabezado-seccion">
                      <h2>Canciones en tendencia</h2>
-                    <a href="#" class="enlace-mostrar" style="text-decoration: none;">Mostrar todos</a>
                  </div>
 
                 <div class="cuadricula-canciones">
                     <button class="carousel-btn prev-btn" onclick="scrollCarousel(-1)">&#10094;</button>
 
                     <div class="carousel-track" id="musicTrack">
-             <div class="tarjeta-cancion">
+             <div class="tarjeta-cancion"  data-index="0" onclick="seleccionarCancion(0)">
                 <div class="contenedor-portada">
                   <img src="imagenes/vampire.jpg">
                  </div>
@@ -86,7 +96,7 @@
               <p>Olivia Rodrigo</p>
             </div>
 
-            <div class="tarjeta-cancion">
+            <div class="tarjeta-cancion" data-index="3" onclick="seleccionarCancion(3)">
                  <div class="contenedor-portada">
                    <img src="imagenes/begged.jpg">
                  </div>
@@ -94,7 +104,7 @@
              <p>Olivia Rodrigo</p>
             </div>
 
-             <div class="tarjeta-cancion">
+             <div class="tarjeta-cancion" data-index="1" onclick="seleccionarCancion(1)">
                   <div class="contenedor-portada">
                       <img src="imagenes/driverlicense.jpg">
                   </div>
@@ -103,7 +113,7 @@
             </div>
 
 
-             <div class="tarjeta-cancion">
+             <div class="tarjeta-cancion" data-index="4" onclick="seleccionarCancion(4)">
                   <div class="contenedor-portada">
                       <img src="imagenes/badidea.jpg">
                   </div>
@@ -112,7 +122,7 @@
             </div>
 
 
-             <div class="tarjeta-cancion">
+             <div class="tarjeta-cancion" data-index="5" onclick="seleccionarCancion(5)">
                   <div class="contenedor-portada">
                       <img src="imagenes/brutal.jpg">
                   </div>
@@ -120,7 +130,7 @@
                  <p>Olivia Rodrigo</p>
             </div>
 
-             <div class="tarjeta-cancion">
+             <div class="tarjeta-cancion" data-index="6" onclick="seleccionarCancion(6)">
                   <div class="contenedor-portada">
                       <img src="imagenes/good4ujpg.jpg">
                   </div>
@@ -128,7 +138,7 @@
                  <p>Olivia Rodrigo</p>
             </div>
 
-            <div class="tarjeta-cancion">
+            <div class="tarjeta-cancion" data-index="7" onclick="seleccionarCancion(7)">
                   <div class="contenedor-portada">
                       <img src="imagenes/traitor.jpg">
                   </div>
@@ -143,6 +153,9 @@
          </div>
         
          </section>
+        
+
+
 
             <div class="contenedor-de-albumes">
 
@@ -150,32 +163,32 @@
 
                 <div class="seccion-albumes">
 
-                     <div class="card">
-                          <img src="imagenes/albumsour.jpg">
+                     <div class="card" onclick="mostrarAlbum('sour')">
+                          <img src="imagenes/albumsour.jpg" data-album="sour">
                           <div class="content-album">
                               <h3>Sour</h3>
                               <p>Olivia Rodrigo</p>
                          </div>
                       </div>
 
-                      <div class="card">
-                          <img src="imagenes/albumguts.jpg">
+                      <div class="card" onclick="mostrarAlbum('guts')">
+                          <img src="imagenes/albumguts.jpg" data-album="guts">
                          <div class="content-album">
                            <h3>GUTS</h3>
                              <p>Olivia Rodrigo</p>
                         </div>
                       </div>
 
-                     <div class="card">
-                         <img src="imagenes/albumguts(deluxe)jpg.jpg"/>
+                     <div class="card" onclick="mostrarAlbum('guts-deluxe')">
+                         <img src="imagenes/albumguts(deluxe)jpg.jpg" data-album="guts-deluxe">
                         <div class="content-album">
                             <h3>GUTS(deluxe)</h3>
                             <p>Olivia Rodrigo</p>
                          </div>
                      </div>
 
-                      <div class="card">
-                          <img src="imagenes/albumyouseemprettyjpg.jpg">
+                      <div class="card" onclick="mostrarAlbum('pretty-sad')">
+                          <img src="imagenes/albumyouseemprettyjpg.jpg" data-album="pretty-sad">
                         <div class="content-album">
                             <h3>You seem pretty sad for a <br> girl so in love</h3>
                             <p>Olivia Rodrigo</p>
@@ -187,20 +200,32 @@
 
              <div class="seccion-lista-dinamica">
     
-                 <h2 class="titulo-seccion">Todas las canciones</h2>
+                <div class="encabezado-lista">
+                    <h2 class="titulo-seccion">Todas las canciones</h2>
+                     <button class="btn-aleatorio" onclick="reproducirAleatorio()">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                         <polyline points="16 3 21 3 21 8"/>
+                         <line x1="4" y1="20" x2="21" y2="3"/>
+                        <polyline points="21 16 21 21 16 21"/>
+                        <line x1="15" y1="15" x2="21" y2="21"/>
+                        </svg>
+                         Reproducir aleatoriamente
+                    </button>
+                </div>
     
                  <div class="contenedor-lista-animada">
         
-                     <div class="item-cancion-animado">
+                     <div class="item-cancion-animado" data-index="0" onclick="seleccionarCancion(0)">
                          <img src="imagenes/vampire.jpg" class="imagen-item">
                             <div class="letras-item">
-                              <span class="titulo-item" id="titulo">Vampire</span>
+                              <span class="titulo-item" id="tituloLista">Vampire</span>
                               <span class="artista-item" id="artista">Olivia Rodrigo</span>
                             </div>
                          <div class="duracion-item">3:39</div>
                    </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="4" onclick="seleccionarCancion(4)">
                 <img src="imagenes/badidea.jpg" class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item" id="titulo">Bad Idea Right?</span>
@@ -209,7 +234,7 @@
                 <div class="duracion-item">3:04</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="1" onclick="seleccionarCancion(1)">
                  <img src="imagenes/driverlicense.jpg"  class="imagen-item">
                  <div class="letras-item">
                      <span class="titulo-item" id="titulo">Drivers License</span>
@@ -218,7 +243,7 @@
                  <div class="duracion-item">4:02</div>
              </div>
 
-             <div class="item-cancion-animado">
+             <div class="item-cancion-animado" data-index="6" onclick="seleccionarCancion(6)">
                  <img src="imagenes/good4ujpg.jpg"  class="imagen-item">
                  <div class="letras-item">
                     <span class="titulo-item">Good 4 U</span>
@@ -227,238 +252,351 @@
                 <div class="duracion-item">2:58</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="7" onclick="seleccionarCancion(7)">
                  <img src="imagenes/traitor.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Traitor</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="5" onclick="seleccionarCancion(5)">
                  <img src="imagenes/brutal.jpg"  class="imagen-item">
                 <div class="letras-item">
-                    <span class="titulo-item"></span>Brutal
+                    <span class="titulo-item">Brutal</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="8" onclick="seleccionarCancion(8)">
                  <img src="imagenes/soamerican.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">So american</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="3" onclick="seleccionarCancion(3)">
                  <img src="imagenes/begged.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Begged</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="9" onclick="seleccionarCancion(9)">
                  <img src="imagenes/favoritecrime.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Favorite crime</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="2" onclick="seleccionarCancion(2)">
                  <img src="imagenes/dejavujpg.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Deja vu</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="10" onclick="seleccionarCancion(10)">
                  <img src="imagenes/happier.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Happier</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="11" onclick="seleccionarCancion(11)">
                  <img src="imagenes/1step3back.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">1 step forward, 3 step back</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="12" onclick="seleccionarCancion(12)">
                  <img src="imagenes/enoughforu.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Enough for you</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="13" onclick="seleccionarCancion(13)">
                  <img src="imagenes/scaredofmyguittar.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Scared of my guittar</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="14" onclick="seleccionarCancion(14)">
                  <img src="imagenes/stranger.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Stranger</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="15" onclick="seleccionarCancion(15)">
                  <img src="imagenes/lacy.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Lacy</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
-                 <img src="imagenes/jelousy.jpg"  class="imagen-item">
+            <div class="item-cancion-animado" data-index="16" onclick="seleccionarCancion(16)">
+                 <img src="imagenes/jealousy.jpg"  class="imagen-item">
                 <div class="letras-item">
-                    <span class="titulo-item">Jelousy, jelousy</span>
+                    <span class="titulo-item">Jealousy, jealousy</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="17" onclick="seleccionarCancion(17)">
                  <img src="imagenes/hopeurok.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Hope ur ok</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="18" onclick="seleccionarCancion(18)">
                  <img src="imagenes/balladofhomeschooledgirl.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Ballad of homeschooled girl</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="19" onclick="seleccionarCancion(19)">
                  <img src="imagenes/logical.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Logical</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="20" onclick="seleccionarCancion(20)">
                  <img src="imagenes/loveisembarasing.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Love is embarassing</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="21" onclick="seleccionarCancion(21)">
                  <img src="imagenes/obsessedjpg.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Obsessed</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
-                 <img src="imagenes/girleivealwaysbeen.jpg"  class="imagen-item">
+            <div class="item-cancion-animado" data-index="22" onclick="seleccionarCancion(22)">
+                 <img src="imagenes/girlivealwaysbeen.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Girl i've always been</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="23" onclick="seleccionarCancion(23)">
                  <img src="imagenes/allamericanbitch.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">All american bitch</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="24" onclick="seleccionarCancion(24)">
                  <img src="imagenes/makingthebed.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Making the bed</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="25" onclick="seleccionarCancion(25)">
                  <img src="imagenes/gethimback.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Get him back!</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="27" onclick="seleccionarCancion(27)">
                  <img src="imagenes/teenagedream.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Teenage dream</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="26" onclick="seleccionarCancion(26)">
                  <img src="imagenes/thegrudge.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">The grudge</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
             </div>
 
-            <div class="item-cancion-animado">
+            <div class="item-cancion-animado" data-index="28" onclick="seleccionarCancion(28)">
                  <img src="imagenes/prettyisntpretty.jpg"  class="imagen-item">
                 <div class="letras-item">
                     <span class="titulo-item">Pretty isn't pretty</span>
                     <span class="artista-item">Olivia Rodrigo</span>
                 </div>
-                <div class="duracion-item">3:49</div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+            <div class="item-cancion-animado" data-index="29" onclick="seleccionarCancion(29)">
+                 <img src="imagenes/dropdead.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Drop dead</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="30" onclick="seleccionarCancion(30)">
+                 <img src="imagenes/stupidsong.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Stupid song</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="31" onclick="seleccionarCancion(31)">
+                 <img src="imagenes/honeybee.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Honeybee</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="32" onclick="seleccionarCancion(32)">
+                 <img src="imagenes/maggotsforbrains.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Maggots for brains</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>           
+            
+            <div class="item-cancion-animado" data-index="33" onclick="seleccionarCancion(33)">
+                 <img src="imagenes/u+me=.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">U + me = ♡</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+            <div class="item-cancion-animado" data-index="34" onclick="seleccionarCancion(34)">
+                 <img src="imagenes/myway.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">My way</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="35" onclick="seleccionarCancion(35)">
+                 <img src="imagenes/purple.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Purple</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="36" onclick="seleccionarCancion(36)">
+                 <img src="imagenes/thecure.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">The cure</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="37" onclick="seleccionarCancion(37)">
+                 <img src="imagenes/whatswrongwithme.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">What's wrong with me</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="38" onclick="seleccionarCancion(38)">
+                 <img src="imagenes/less.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Less</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="39" onclick="seleccionarCancion(39)">
+                 <img src="imagenes/expectations.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Expextations</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
+            </div>
+
+                        <div class="item-cancion-animado" data-index="40" onclick="seleccionarCancion(40)">
+                 <img src="imagenes/cigarettesmoke.jpg"  class="imagen-item">
+                <div class="letras-item">
+                    <span class="titulo-item">Cigarette smoke</span>
+                    <span class="artista-item">Olivia Rodrigo</span>
+                </div>
+                <div class="duracion-item">0:00</div>
             </div>
 
 
             </div>
          </div>
 
-                </div>
-
+         
+        </div>
+                    
+         </div>
+         
+        </div>
+                
                 
                 
 
