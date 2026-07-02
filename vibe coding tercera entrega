@@ -1,0 +1,39 @@
+Parte 1: Prompts utilizados durante el desarrollo
+
+
+	Prompt 1: "quiero que, al tocar algún album de mi sección de álbumes de mi contenedor derecho se muestre solamente las canciones de ese album, con el mismo estilo de mi lista animada, ayúdame con un manual paso a paso para poder desarrollar esta lógica"
+
+	Este prompt dio origen a dos desarrollos simultáneos. Primero, se implementó en `reproductor.js` la función `mostrarAlbum()`, que al hacer clic sobre cualquier tarjeta de álbum filtra y reconstruye dinámicamente la lista de canciones del contenedor derecho mostrando únicamente las pertenecientes a ese álbum, respetando el estilo visual de `.item-cancion-animado`. Se creó además el objeto `albumes` que mapea cada álbum con los índices correspondientes del array `canciones`, y el objeto `nombresAlbumes` para mostrar el título correcto en cada caso. Segundo, este mismo prompt permitió detectar errores preexistentes en el código: rutas de portadas incorrectas en los índices 20 y 22 del array, y un texto fuera de su etiqueta `<span>` en la lista animada.
+
+
+
+	Prompt 2: "Deseo implementar una barra de búsqueda completamente funcional (dropdown estilo Spotify) que mantenga el estilo de mi página e interfaz actual, de que manera puedo desarrollarla?"
+
+
+	Este prompt surgio como corrección de dirección respecto a una propuesta inicial que filtraba la lista visible en pantalla. La versión definitiva implementa un dropdown desplegable anclado debajo de la barra de búsqueda mediante el elemento `#dropdownBusqueda` en el HTML. La lógica en `reproductor.js` recorre el array completo de `canciones` filtrando en tiempo real por título y artista, construyendo cada resultado como un elemento visual con portada, título y artista. Al seleccionar un resultado la canción inicia su reproducción, el input se limpia y el dropdow se cierra automáticamente. Se contempló también el cierre al hacer clic fuera del componente. Los estilos del dropdown se añadieron en `or.css` con `.dropdown-busqueda`, `.dropdown-item` y `.dropdown-sin-resultados`.
+
+
+	Prompt 3: "cómo puedo agregar un botón que reproduzca todas las canciones de la lista animada aleatoriamente?"*
+
+	Este prompt dio lugar a la implementación del modo de reproducción aleatoria. Se añadió en `reproductor.html` el botón `.btn-aleatorio` con un ícono SVG de shuffle dentro de `.encabezado-lista`, que agrupa visualmente el título de la sección y el botón. En `reproductor.js` se creó la variable `modoAleatorio` y la función `reproducirAleatorio()` que selecciona un índice al azar del array `canciones` y lo reproduce de inmediato. La función `siguiente()` fue adaptada para que, cuando el modo aleatorio está activo, cada canción que termina o cada avance manual seleccione una canción aleatoria en lugar de la siguiente en orden. En `or.css` se estilizó el botón con `.btn-aleatorio` usando los colores morados del tema visual del proyecto.
+
+
+
+Parte 2: errores 
+
+	Error 1: Funcion siguiente declarada dos veces (función duplicada)
+Al revisar el archivo reproductor.js, la IA habia generado dos declaraciones de la funcion siguiente. La primera (línea 94) implementaba la navegación secuencial básica. La segunda (línea 374) intentaba agregar el modo aleatorio usando una referencia a siguienteOriginal, que buscaba capturar la primera función antes de sobreescribirla
+haciendo que siguienteOriginal nunca capturara la versión original. Esto provocaba que el botón siguiente y el evento ended del elemento <audio> no navegaran correctamente entre canciones.
+
+	Solución aplicada: se eliminó la función duplicada del final del archivo y se consolido toda la lógica en una única función siguiente que evalúa mediante un condicional if/else si modoAleatorio es true, tomando un índice aleatorio del array listaActual, o si es false, calculando el siguiente índice con el operador módulo (%) para que la lista sea circular
+
+	Error 2: Variable listaCanciones declarada pero nunca utilizada
+La IA generó la variable listaCanciones como un array de todos los índices del arreglo canciones, aparentemente con la intención de usarla para el modo aleatorio. Sin embargo, en ninguna parte del código esta variable era referenciada: la función reproducirAleatorio() ignoraba listaCanciones y tomaba el índice directamente con Math.random() * canciones.length
+
+	Solución aplicada: se eliminó listaCanciones y se reemplazó por listaActual, un array dinámico que se inicializa con todos los índices pero se actualiza cuando el usuario abre un álbum a través de mostrarAlbum(). De esta manera, tanto siguiente(), anterior() como reproducirAleatorio() operan siempre sobre el contexto correcto de canciones
+
+	Error 3: Variables let usadas antes de ser declaradas
+En la versión entregada por la IA, las variables modoAleatorio y listaActual estaban declaradas con let al final del archivo (líneas 391-392), pero eran referenciadas desde la línea 95 en adelante dentro de las funciones siguiente() y anterior().
+A diferencia de las var y las function declarations, las variables declaradas con let no se elevan con valor asignado (temporal dead zone), lo que puede causar un ReferenceError en navegadores estrictos. 
+
+	Solución aplicada: se movieron ambas declaraciones a la línea 64, junto con las demás variables globales del reproductor (indiceActual, reproduciendo), asegurando que estuvieran disponibles en el scope global antes de cualquier llamada a las funciones que las utilizan.
