@@ -1,0 +1,30 @@
+Informe: Utilización de IA para la realización del tercer proyecto de Espacio Educa: Reproductor de música.
+Norelys Acosta.
+
+1.	¿Para qué utilicé la IA en el mi proyecto?
+
+a.	Elegir el nombre de mi página (de ahí salió la idea de SourStream).
+
+b.	Le pregunté el por qué al crear una carpeta especial para solo colocar mis imágenes dejaban de verse en mi página web (me explicó que primero tenía que indicarle al HTML que entrará a la carpeta donde las había guardado y luego el nombre de la imagen que necesitaba usando una barra diagonal ‘/’ )
+
+
+c.	Guiarme en qué son exactamente los key-frames en css y cómo utilizarlos, lo apliqué en la interfaz de bienvenida a mi página web.
+
+d.	Para crear la lista animada de las músicas en el reproductor.
+
+2.	¿Qué prompts utilicé y para qué partes de mi página?
+
+a.	“Quiero que el disco ubicado al lado izquierdo (inserte foto de mi interfaz de bienvenida) gire en un bucle infinito mientras se visualice esta parte de mi página ¿hay alguna manera de hacerlo en css?”. Así me arrojó la respuesta de los key-frames en css y la manera de aplicarlo al disco.
+
+b.	 “¿Conoces las listas de spotify? Quisiera aplicarle este estilo (le envié un video corto de la sección de animated list de la página react.bits)  a una lista de canciones que esté debajo de la sección de los álbumes del lado derecho”. De esa manera me dio los contenedores que iban en el html, como los nombres, el tiempo de duración y las imágenes, y también el código del css en donde especifico los colores, el ancho, la posición y la animación hover.
+
+
+c.	“Hice una scrollbar dentro del contenedor derecho de la interfaz de mi reproductor donde se encuentran las tarjetas (tarjetas de la sección de álbumes) y al momento de mover dicha scrollbar las imágenes también se mueven, de qué manera puedo resolverlo”.  Me explicó que el ‘position: absolute;’ en mi clase ‘.card’ hacia que flotaran libres buscando a su contenedor padre para guiarse.  Así que por solución me pidió que intentará colocar en mi clase ‘.card’ en css “position: relative;” y “overflow: hidden;”  lo que haría que mis imágenes se ‘anclarán’  a la tarjeta y evitar que las imágenes se expandan del tamaño ya impuesto.
+
+3.	¿En qué se equivocó la IA y cómo lo solucioné?
+
+a.	Cuando le pedí la ayuda para la lista animada de canciones, por si sola añadió una scrollbar a esa sección, lo que hice fue borrar las líneas de las especificaciones, debido a que ese contenedor derecho principal ya contaba con una y esa arruinaba el balance visual que estaba buscando.
+
+b.	Al realizar la sección de álbumes me inspire de un videos sacado de tiktok pero en este no se mostraban los contenedores con imágenes por lo que le pedí ayuda a la IA para colocarlas de manera correcta pero las imágenes se desbordaban y ocupaban espacio que no deberían, mi solución fue aplicar “object-fit: cover” y “position: absolute;” a mi clase .card img en css
+
+c.	Casi en ningún caso estuve en desacuerdo con la IA debido a que fui específica en las partes en las que la necesité, pero en los pequeñas alucinaciones o errores que cometió, p
